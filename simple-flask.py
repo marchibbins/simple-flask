@@ -9,14 +9,14 @@ app.debug = True
 
 # Simple JSON file parser
 def get_json(path):
-    file = open('data/simple.json')
+    file = open(path)
     data = json.load(file)
     file.close()
     return data
 
 # Wrapper for template render and JSON parser
-def render(view, data):
-    data = get_json(data)
+def render(view, json_path):
+    data = get_json(json_path)
     return render_template(view, **data)
 
 # Routes
